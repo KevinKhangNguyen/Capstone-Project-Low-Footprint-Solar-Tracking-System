@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>14</x>
+      <y>63</y>
+      <w>406</w>
+      <h>378</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Full_Solar_Panel_Code&gt;&gt;
+--
+LDR1: int {readOnly}
+LDR2: int {readOnly}
+LDR3: int {readOnly}
+LDR4: int {readOnly}
+
+stepsPerRevolution: int {readOnly}
+deviation: int {readOnly}
+degreesPerStep: float {readOnly}
+
+horizontalMaxPosition: int {readOnly}
+horizontalMinPosition: int {readOnly}
+verticalMaxPosition: int {readOnly}
+verticalMinPosition: int {readOnly}
+
+horizontalStepsMax: int {readOnly}
+horizontalStepsMin: int {readOnly}
+verticalStepsMax: int {readOnly}
+verticalStepsMin: int {readOnly}
+
+ldr1: int
+ldr2: int
+ldr3: int
+ldr4: int
+
+maxLDRValue: int
+totalLDRValue: int
+
+currentHorizontalPosition: int
+currentVerticalPosition: int
+--
+stepperX(stepsPerRevolution: int, pin1: int, pin2: int, pin3: int, pin4: int): Stepper
+stepperY1(stepsPerRevolution: int, pin1: int, pin2: int, pin3: int, pin4: int): Stepper
+stepperY2(stepsPerRevolution: int, pin1: int, pin2: int, pin3: int, pin4: int): Stepper</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>14</x>
+      <y>483</y>
+      <w>182</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>setup(): void
+-
+Serial.begin(baudRate: int): void
+stepperX.setSpeed(speed: int): void
+stepperY1.setSpeed(speed: int): void
+stepperY2.setSpeed(speed: int): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>91</x>
+      <y>434</y>
+      <w>21</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>329</x>
+      <y>434</y>
+      <w>21</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>266</x>
+      <y>476</y>
+      <w>140</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>loop(): void
+--
+sendDataToNodeRED(): void
+
+moveToLDR1(): void
+moveToLDR2(): void
+moveToLDR3(): void
+moveToLDR4(): void
+
+delay(time: int): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>413</x>
+      <y>98</y>
+      <w>56</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>413</x>
+      <y>175</y>
+      <w>56</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>455</x>
+      <y>224</y>
+      <w>280</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>moveToLDR3(): void
+--
+stepperX.set(horizontalStepCalculation(ldr: int): int): void
+stepperY1.set(verticalStepCalculation(ldr: int): int): void
+stepperY2.set(verticalStepCalculation(ldr: int): int): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>413</x>
+      <y>252</y>
+      <w>56</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>413</x>
+      <y>329</y>
+      <w>56</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>455</x>
+      <y>147</y>
+      <w>280</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>moveToLDR2(): void
+--
+stepperX.set(horizontalStepCalculation(ldr: int): int): void
+stepperY1.set(verticalStepCalculation(ldr: int): int): void
+stepperY2.set(verticalStepCalculation(ldr: int): int): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>455</x>
+      <y>70</y>
+      <w>280</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>moveToLDR1(): void
+--
+stepperX.set(horizontalStepCalculation(ldr: int): int): void
+stepperY1.set(verticalStepCalculation(ldr: int): int): void
+stepperY2.set(verticalStepCalculation(ldr: int): int): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>455</x>
+      <y>301</y>
+      <w>280</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>moveToLDR4(): void
+--
+stepperX.set(horizontalStepCalculation(ldr: int): int): void
+stepperY1.set(verticalStepCalculation(ldr: int): int): void
+stepperY2.set(verticalStepCalculation(ldr: int): int): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>959</x>
+      <y>0</y>
+      <w>196</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>horizontalStepCalculation(LDR: int): int
+--
+targetHorAngle: int
+tempCurrentHorizontalPosition: int
+horizontalSteps: int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>413</x>
+      <y>49</y>
+      <w>749</w>
+      <h>371</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;510.0;1050.0;510.0;1050.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>728</x>
+      <y>49</y>
+      <w>140</w>
+      <h>203</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;270.0;180.0;270.0;180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>749</x>
+      <y>0</y>
+      <w>196</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>verticallStepCalculation(LDR: int): int
+--
+targetVerAngle: int
+tempCurrentVerticalPosition: int
+verticalSteps: int</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>728</x>
+      <y>49</y>
+      <w>91</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;160.0;110.0;160.0;110.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>728</x>
+      <y>49</y>
+      <w>49</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;50.0;50.0;50.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>728</x>
+      <y>49</y>
+      <w>189</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;380.0;250.0;380.0;250.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>413</x>
+      <y>49</y>
+      <w>539</w>
+      <h>350</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;480.0;750.0;480.0;750.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>728</x>
+      <y>49</y>
+      <w>252</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;100.0;340.0;100.0;340.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>728</x>
+      <y>49</y>
+      <w>301</w>
+      <h>161</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;210.0;410.0;210.0;410.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>728</x>
+      <y>49</y>
+      <w>350</w>
+      <h>238</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;320.0;480.0;320.0;480.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>728</x>
+      <y>49</y>
+      <w>392</w>
+      <h>315</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;430.0;540.0;430.0;540.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>413</x>
+      <y>427</y>
+      <w>112</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0;140.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>434</x>
+      <y>602</y>
+      <w>140</w>
+      <h>231</h>
+    </coordinates>
+    <panel_attributes>sendDataToNodeRED(): void
+--
+rawVoltage: float
+voltage: float
+
+rawCurrent: float
+current: float
+
+tempRaw: float
+temperature: float
+
+power: float
+
+_dailyEnergy: float_
+_totalEnergy: float_
+
+efficiency: float
+batteryPercentage: int
+
+rawExport: float
+export: float</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>329</x>
+      <y>581</y>
+      <w>119</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>150.0;280.0;10.0;280.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>399</x>
+      <y>329</y>
+      <w>406</w>
+      <h>175</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;230.0;560.0;230.0;560.0;10.0;480.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>399</x>
+      <y>252</y>
+      <w>427</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;380.0;590.0;380.0;590.0;10.0;480.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>399</x>
+      <y>175</y>
+      <w>448</w>
+      <h>385</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;530.0;620.0;530.0;620.0;10.0;480.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>399</x>
+      <y>98</y>
+      <w>483</w>
+      <h>490</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;680.0;670.0;680.0;670.0;10.0;480.0;10.0</additional_attributes>
+  </element>
+</diagram>
